@@ -11,7 +11,7 @@ namespace ntsystbe.Controllers
         [HttpPost]
         public void Get([FromBody] RealEstateDto realEstateDto)
         {
-            var smth = realEstateDto;
+            var smtha = realEstateDto;
         }
 
     }
