@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ntsystbe.Dto;
+using ntsystbe.services;
+using System;
 
 namespace ntsystbe.Controllers
 {
@@ -7,11 +9,17 @@ namespace ntsystbe.Controllers
     [Route("[controller]")]
     public class RealEstateController : ControllerBase
     {
+        private readonly IRealEstateService _realEstateService;
+
+        public RealEstateController(IRealEstateService realEstateService)
+        {
+            _realEstateService = realEstateService;
+        }
 
         [HttpPost]
         public void Get([FromBody] RealEstateDto realEstateDto)
         {
-            var smtha = realEstateDto;
+            _realEstateService.addToJson(realEstateDto);
         }
 
     }
